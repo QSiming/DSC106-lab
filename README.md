@@ -1,2 +1,2 @@
-# DSC106-lab1
+# DSC106-lab
 
