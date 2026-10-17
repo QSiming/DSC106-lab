@@ -75,6 +75,20 @@ select.addEventListener('input', function (event) {
     'color-scheme',
     event.target.value
   );
+
+ //store the selected color scheme in localStorage, so that it persists across page reloads 
+  localStorage.colorScheme = event.target.value;
 });
+
+if ('colorScheme' in localStorage) {
+  document.documentElement.style.setProperty(
+    'color-scheme',
+    localStorage.colorScheme
+  );
+
+  select.value = localStorage.colorScheme;
+};
+
+
 
 
