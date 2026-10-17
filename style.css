@@ -146,3 +146,17 @@ nav {
   --border-color: oklch(50% 10% 200 / 40%);
 }
 
+/* Placing the switcher at the top right corner */
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
