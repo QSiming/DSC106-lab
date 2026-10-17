@@ -67,4 +67,12 @@ document.body.insertAdjacentHTML(
   `
 );
 
+//make the dark mode switch actually work
+let select = document.querySelector('.color-scheme select');
 
+select.addEventListener('input', function (event) {
+  document.documentElement.style.setProperty(
+    'color-scheme',
+    event.target.value
+  );
+});
