@@ -6,3 +6,8 @@ const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
 
 renderProjects(projects, projectsContainer, 'h2');
+
+// Update the projects title with the number of projects
+const projectsTitle = document.querySelector('.projects-title');
+
+projectsTitle.textContent = `Projects (${projects.length})`;
