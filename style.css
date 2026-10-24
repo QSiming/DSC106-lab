@@ -121,29 +121,68 @@ h6 {
 
 
 /* change styles for CV page */
-.cv-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2em;
-    
-    }
-
-.cv-grid ul {
-  display: grid;
-  row-gap: 0.75em;
+.resume {
+    max-width: 900px;
+    margin: 2em auto;
+    font-size: 1rem;
+    line-height: 1.35;
 }
 
-.cv-grid h3 {
-  font-size: 1em;
+.resume-header {
+    text-align: center;
+    margin-bottom: 2.5em;
 }
 
-
-/* dark mode */
-html {
-  color-scheme: light dark;
+.resume-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.2em;
 }
-nav {
-  --border-color: oklch(50% 10% 200 / 40%);
+
+.resume-header p {
+    margin: 0;
+}
+
+.resume section {
+    margin-bottom: 2em;
+}
+
+.resume section h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.4em;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 0.15em;
+}
+
+.resume-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    align-items: baseline;
+}
+
+.resume-row span {
+    white-space: nowrap;
+}
+
+.resume ul {
+    margin-top: 0.4em;
+    padding-left: 1.5em;
+}
+
+.resume li {
+    margin-bottom: 0.2em;
+}
+
+.resume p {
+    margin: 0.2em 0;
+}
+
+.project-title {
+    margin-top: 1.5em;
+}
+
+.resume a {
+    color: inherit;
 }
 
 /* Placing the switcher at the top right corner */
