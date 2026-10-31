@@ -206,3 +206,32 @@ select {
     margin-block: 2em;
     overflow: visible;
 }
+
+/* change styles for legend */
+.legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+    gap: 1em;
+
+    padding: 1em;
+    margin-block: 2em;
+
+    border: 1px solid #ccc;
+}
+
+/* change styles for legend items */
+.legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+
+/* change styles for color swatches */
+.swatch {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: var(--color);
+    border-radius: 0.25em;
+}
