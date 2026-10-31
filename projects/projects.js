@@ -58,6 +58,6 @@ arcs.forEach((arc, idx) => {
 });
 
 // Change the color of the pie chart based on the selected color scheme
-let colors = ['gold', 'purple'];
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 
