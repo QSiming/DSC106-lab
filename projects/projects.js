@@ -55,40 +55,39 @@ function renderPieChart(projectsGiven) {
 
     // draw updated pie chart
     newArcs.forEach((arc, i) => {
-        newSVG
-            .append('path')
-            .attr('d', arc)
-            .attr('fill', colors(i))
-            .on('click', () => {
-                selectedIndex = selectedIndex === i ? -1 : i;
+    newSVG
+        .append('path')
+        .attr('d', arc)
+        .attr('fill', colors(i))
+        .on('click', () => {
+            selectedIndex = selectedIndex === i ? -1 : i;
 
-                newSVG
-                    .selectAll('path')
-                    .attr('class', (_, idx) =>
-                        idx === selectedIndex ? 'selected' : ''
-                    );
+            newSVG
+                .selectAll('path')
+                .attr('class', (_, idx) =>
+                    idx === selectedIndex ? 'selected' : ''
+                );
 
-                legend
-                    .selectAll('li')
-                    .attr('class', (_, idx) =>
-                        idx === selectedIndex ? 'selected' : ''
-                    ); 
-            });
+            legend
+                .selectAll('li')
+                .attr('class', (_, idx) =>
+                    idx === selectedIndex ? 'selected' : ''
+                );
+
             // filter the projects based on the selected year
-                if (selectedIndex === -1) {
-                    renderProjects(projects, projectsContainer, 'h2');
-                } else {
-                    let selectedYear = newData[selectedIndex].label;
+            if (selectedIndex === -1) {
+                renderProjects(projects, projectsContainer, 'h2');
+            } else {
+                let selectedYear = newData[selectedIndex].label;
 
-                    let filteredProjects = projects.filter(
-                        (project) => project.year === selectedYear
-                    );
+                let filteredProjects = projects.filter(
+                    (project) => project.year === selectedYear
+                );
 
-                    renderProjects(filteredProjects, projectsContainer, 'h2');
-                }
-
-
-    });
+                renderProjects(filteredProjects, projectsContainer, 'h2');
+            }
+        });
+});
 
     // draw updated legend
     newData.forEach((d, idx) => {
