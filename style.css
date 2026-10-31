@@ -95,7 +95,7 @@ form button {
 .projects article {
   display: grid;
   grid-template-rows: subgrid;
-  grid-row: span 4;
+  grid-row: span 3;
 }
 
 .projects h2 {
@@ -198,4 +198,11 @@ textarea,
 button,
 select {
   font: inherit;
+}
+
+/* change styles for projects page */
+#projects-pie-plot {
+    max-width: 20em;
+    margin-block: 2em;
+    overflow: visible;
 }
