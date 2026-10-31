@@ -14,27 +14,24 @@ projectsTitle.textContent = `Projects (${projects.length})`;
 
 // Drawing circle path with D3
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
+let data = [1, 2, 3, 4, 5, 5];
+
 let arcGenerator = d3.arc()
     .innerRadius(0)
     .outerRadius(50);
-
-// Drawing a static pie chart with D3
-let data = [1, 2, 3, 4, 5, 5];
-
 
 let sliceGenerator = d3.pie();
 
 let arcData = sliceGenerator(data);
 
 let arcs = arcData.map((d) => arcGenerator(d));
+
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
+
 arcs.forEach((arc, idx) => {
     d3.select('svg')
         .append('path')
         .attr('d', arc)
         .attr('fill', colors(idx));
 });
-
-// Change the color of the pie chart based on the selected color scheme
-let colors = d3.scaleOrdinal(d3.schemeTableau10);
-
 
