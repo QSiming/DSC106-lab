@@ -42,3 +42,12 @@ arcs.forEach((arc, idx) => {
         .attr('fill', colors(idx));
 });
 
+// add legend to the page
+let legend = d3.select('.legend');
+
+data.forEach((d, idx) => {
+    legend
+        .append('li')
+        .attr('style', `--color:${colors(idx)}`)
+        .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+});
