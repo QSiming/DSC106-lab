@@ -235,3 +235,14 @@ select {
     background-color: var(--color);
     border-radius: 0.25em;
 }
+
+/* change styles for container */
+.container {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+.legend {
+    flex: 1;
+}
