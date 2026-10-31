@@ -29,32 +29,18 @@ d3.select('svg')
     .attr('fill', 'red');
 // Drawing a static pie chart with D3
 let data = [1, 2, 3, 4, 5, 5];
-let total = 0;
 
-for (let d of data) {
-    total += d;
-}
 
-let angle = 0;
-let arcData = [];
+let sliceGenerator = d3.pie();
 
-for (let d of data) {
-    let endAngle = angle + (d / total) * 2 * Math.PI;
-
-    arcData.push({
-        startAngle: angle,
-        endAngle: endAngle
-    });
-
-    angle = endAngle;
-}
+let arcData = sliceGenerator(data);
 
 let arcs = arcData.map((d) => arcGenerator(d));
 arcs.forEach((arc, idx) => {
     d3.select('svg')
         .append('path')
         .attr('d', arc)
-        .attr('fill', colors[idx]);
+        .attr('fill', colors(idx));
 });
 
 // Change the color of the pie chart based on the selected color scheme
