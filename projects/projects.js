@@ -59,11 +59,12 @@ data.forEach((d, idx) => {
 // add event listener to the search bar to filter the projects
 let query = '';
 let searchInput = document.querySelector('.searchBar');
+
 searchInput.addEventListener('change', (event) => {
-    query = event.target.value;
+    query = event.target.value.toLowerCase();
 
     let filteredProjects = projects.filter((project) =>
-        project.title.includes(query)
+        project.title.toLowerCase().includes(query)
     );
 
     renderProjects(filteredProjects, projectsContainer, 'h2');
