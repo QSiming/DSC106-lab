@@ -18,15 +18,6 @@ let arcGenerator = d3.arc()
     .innerRadius(0)
     .outerRadius(50);
 
-let arc = arcGenerator({
-    startAngle: 0,
-    endAngle: 2 * Math.PI,
-});
-
-d3.select('svg')
-    .append('path')
-    .attr('d', arc)
-    .attr('fill', 'red');
 // Drawing a static pie chart with D3
 let data = [1, 2, 3, 4, 5, 5];
 
