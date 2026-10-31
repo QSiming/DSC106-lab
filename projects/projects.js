@@ -21,6 +21,8 @@ let arcGenerator = d3.arc()
 
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
+let selectedIndex = -1;
+
 function renderPieChart(projectsGiven) {
     let newRolledData = d3.rollups(
         projectsGiven,
@@ -49,17 +51,32 @@ function renderPieChart(projectsGiven) {
     // clear old legend
     d3.select('.legend').selectAll('li').remove();
 
+    let legend = d3.select('.legend');
+
     // draw updated pie chart
-    newArcs.forEach((arc, idx) => {
+    newArcs.forEach((arc, i) => {
         newSVG
             .append('path')
             .attr('d', arc)
-            .attr('fill', colors(idx));
+            .attr('fill', colors(i))
+            .on('click', () => {
+                selectedIndex = selectedIndex === i ? -1 : i;
+
+                newSVG
+                    .selectAll('path')
+                    .attr('class', (_, idx) =>
+                        idx === selectedIndex ? 'selected' : ''
+                    );
+
+                legend
+                    .selectAll('li')
+                    .attr('class', (_, idx) =>
+                        idx === selectedIndex ? 'selected' : ''
+                    );
+            });
     });
 
     // draw updated legend
-    let legend = d3.select('.legend');
-
     newData.forEach((d, idx) => {
         legend
             .append('li')
@@ -71,6 +88,7 @@ function renderPieChart(projectsGiven) {
 }
 
 renderPieChart(projects);
+
 // add event listener to the search bar to filter the projects
 let query = '';
 let searchInput = document.querySelector('.searchBar');

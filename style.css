@@ -257,3 +257,16 @@ svg:has(path:hover) {
 path {
     transition: 300ms;
 }
+
+/* change styles for selected pie slice */
+.selected {
+    --color: oklch(60% 45% 0) !important;
+
+    &:is(path) {
+        fill: var(--color);
+    }
+}
+
+path {
+    cursor: pointer;
+}
