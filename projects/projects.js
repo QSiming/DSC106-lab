@@ -72,8 +72,22 @@ function renderPieChart(projectsGiven) {
                     .selectAll('li')
                     .attr('class', (_, idx) =>
                         idx === selectedIndex ? 'selected' : ''
-                    );
+                    ); 
             });
+            // filter the projects based on the selected year
+                if (selectedIndex === -1) {
+                    renderProjects(projects, projectsContainer, 'h2');
+                } else {
+                    let selectedYear = newData[selectedIndex].label;
+
+                    let filteredProjects = projects.filter(
+                        (project) => project.year === selectedYear
+                    );
+
+                    renderProjects(filteredProjects, projectsContainer, 'h2');
+                }
+
+
     });
 
     // draw updated legend
