@@ -248,15 +248,12 @@ select {
 }
 
 /* all the other pie slices to fade when you hover one slice.*/
-#projects-pie-plot {
-    &:has(path:hover) {
-        path:not(:hover) {
-            opacity: 0.5;
-        }
+svg:has(path:hover) {
+    path:not(:hover) {
+        opacity: 0.5;
     }
 }
-/* make fade transition smooth */
-#projects-pie-plot path {
+
+path {
     transition: 300ms;
 }
-
