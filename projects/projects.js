@@ -55,3 +55,17 @@ data.forEach((d, idx) => {
         .attr('style', `--color:${colors(idx)}`)
         .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
 });
+
+// add event listener to the search bar to filter the projects
+let query = '';
+let searchInput = document.querySelector('.searchBar');
+searchInput.addEventListener('change', (event) => {
+    query = event.target.value;
+
+    let filteredProjects = projects.filter((project) =>
+        project.title.includes(query)
+    );
+
+    renderProjects(filteredProjects, projectsContainer, 'h2');
+});
+
