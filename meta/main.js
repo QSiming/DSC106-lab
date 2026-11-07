@@ -148,11 +148,14 @@ function renderScatterPlot(data, commits) {
     .on('mouseenter', (event, commit) => {
         renderTooltipContent(commit);
         updateTooltipVisibility(true);
+        updateTooltipPosition(event);
     })
     .on('mouseleave', () => {
         updateTooltipVisibility(false);
     });
 }
+
+
 // function to render tooltip content
 function renderTooltipContent(commit) {
     const link = document.getElementById('commit-link');
