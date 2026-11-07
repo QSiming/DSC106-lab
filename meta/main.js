@@ -212,6 +212,22 @@ function renderScatterPlot(data, commits) {
     
     // add brush selector to the plot
     createBrushSelector(svg);
+
+
+    
+    // function to render the count of selected commits
+    function renderSelectionCount(selection) {
+        const selectedCommits = selection
+            ? commits.filter((d) => isCommitSelected(selection, d))
+            : [];
+
+    const countElement = document.querySelector('#selection-count');
+    countElement.textContent = `${
+        selectedCommits.length || 'No'
+    } commits selected`;
+
+    return selectedCommits;
+    }
 }
 
 
