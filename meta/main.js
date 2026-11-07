@@ -181,6 +181,13 @@ function updateTooltipVisibility(isVisible) {
     tooltip.hidden = !isVisible;
 }
 
+// function to update tooltip position
+function updateTooltipPosition(event) {
+    const tooltip = document.getElementById('commit-tooltip');
+
+    tooltip.style.left = `${event.clientX}px`;
+    tooltip.style.top = `${event.clientY}px`;
+}
 
 
 
