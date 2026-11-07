@@ -216,7 +216,7 @@ function updateTooltipPosition(event) {
 // function to create brush selector
 function createBrushSelector(svg) {
     // Create brush
-    svg.call(d3.brush());
+    svg.call(d3.brush().on('start brush end', brushed));
 
     // Raise dots and everything after overlay
     svg.selectAll('.dots, .overlay ~ *').raise();
