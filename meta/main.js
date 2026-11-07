@@ -72,6 +72,10 @@ function renderCommitInfo(data, commits) {
 
 // function to render scatter plot of commits
 function renderScatterPlot(data, commits) {
+    
+    // Sort commits by total lines in descending order
+    const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
+
     const width = 1000;
     const height = 600;
 
@@ -148,7 +152,7 @@ function renderScatterPlot(data, commits) {
     // add circles to represent commits
     dots
     .selectAll('circle')
-    .data(commits)
+    .data(sortedCommits)
     .join('circle')
     .attr('cx', (d) => xScale(d.datetime))
     .attr('cy', (d) => yScale(d.hourFrac))
