@@ -15,10 +15,14 @@
 
     <!-- add an SVG element to hold our chart-->
     <h2>Commits by time of day</h2>
-    <p id="selection-count">No commits selected</p>
     <div id="chart"></div>
 
+    <p id="selection-count">No commits selected</p>
+    
+    <dl id="language-breakdown" class="stats"></dl>
+
     <!-- add a tooltip to show commit details on hover -->
+    
     <dl id="commit-tooltip" class="info tooltip" hidden>
     <dt>Commit</dt>
     <dd>
@@ -38,7 +42,7 @@
     <dd id="commit-lines"></dd>
     </dl>
 
-    <dl id="language-breakdown" class="stats"></dl>
+    
 
     <script type="module" src="main.js"></script>
 </body>
