@@ -110,4 +110,5 @@ let data = await loadData();
 let commits = processCommits(data);
 // render commit information
 renderCommitInfo(data, commits);
-
+// render scatter plot of commits
+renderScatterPlot(data, commits);
