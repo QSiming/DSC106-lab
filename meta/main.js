@@ -210,7 +210,10 @@ function updateTooltipPosition(event) {
     tooltip.style.top = `${event.clientY}px`;
 }
 
-
+// function to create brush selector
+function createBrushSelector(svg) {
+    svg.call(d3.brush());
+}
 
 
 
