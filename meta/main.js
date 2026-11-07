@@ -22,17 +22,26 @@ function processCommits(data) {
             let first = lines[0];
             let { author, date, time, timezone, datetime } = first;
 
-            return {
-            id: commit,
-            author,
-            date,
-            time,
-            timezone,
-            datetime,
-            url: 'https://github.com/QSiming/DSC106-lab/commit/' + commit,
-            hourFrac: datetime.getHours() + datetime.getMinutes() / 60,
-            totalLines: lines.length,
+            let ret = {
+                id: commit,
+                url: 'https://github.com/QSiming/DSC106-lab/commit/' + commit,
+                author,
+                date,
+                time,
+                timezone,
+                datetime,
+                hourFrac: datetime.getHours() + datetime.getMinutes() / 60,
+                totalLines: lines.length,
             };
+
+            Object.defineProperty(ret, 'lines', {
+                value: lines,
+                configurable: true,
+                writable: true,
+                enumerable: false,
+            });
+
+            return ret;
         });
 }
 
