@@ -1,5 +1,5 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
-
+// function to load data from CSV file
 async function loadData() {
     const data = await d3.csv('loc.csv', (row) => ({
         ...row,
@@ -14,7 +14,7 @@ async function loadData() {
 }
 
 
-
+// function to process commit data
 function processCommits(data) {
     return d3
         .groups(data, (d) => d.commit)
@@ -43,6 +43,17 @@ function processCommits(data) {
 
             return ret;
         });
+}
+
+// function to render commit information
+function renderCommitInfo(data, commits) {
+    const dl = d3.select('#stats').append('dl').attr('class', 'stats');
+
+    dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
+    dl.append('dd').text(data.length);
+
+    dl.append('dt').text('Total commits');
+    dl.append('dd').text(commits.length);
 }
 
 
