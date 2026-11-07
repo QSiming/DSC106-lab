@@ -107,6 +107,7 @@ function renderScatterPlot(data, commits) {
         );
 
         renderSelectionCount(selection);
+        renderLanguageBreakdown(selection);
     }
 
 
