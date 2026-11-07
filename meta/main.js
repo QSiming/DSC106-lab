@@ -59,4 +59,6 @@ function renderCommitInfo(data, commits) {
 
 let data = await loadData();
 let commits = processCommits(data);
-console.log(commits);
+// render commit information
+renderCommitInfo(data, commits);
+
