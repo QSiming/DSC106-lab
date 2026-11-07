@@ -363,3 +363,9 @@ dl.info[hidden]:not(:hover, :focus-within) {
     stroke-dasharray: 5 3;
     animation: marching-ants 2s linear infinite;
 }
+
+
+/* change styles for selected circle */
+circle.selected {
+  fill: #ff6b6b;
+}
