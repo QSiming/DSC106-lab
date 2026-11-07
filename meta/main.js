@@ -136,21 +136,35 @@ function renderScatterPlot(data, commits) {
 
     // add labels to the axes
     const dots = svg.append('g').attr('class', 'dots');
+    
+    // define a scale for the radius of the circles based on the number of lines in each commit
+    const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
 
+    const rScale = d3
+        .scaleLinear()
+        .domain([minLines, maxLines])
+        .range([2, 30]);
+
+    // add circles to represent commits
     dots
     .selectAll('circle')
     .data(commits)
     .join('circle')
     .attr('cx', (d) => xScale(d.datetime))
     .attr('cy', (d) => yScale(d.hourFrac))
-    .attr('r', 5)
+    .attr('r', (d) => rScale(d.totalLines))
+    .style('fill-opacity', 0.7)
     .attr('fill', 'steelblue')
     .on('mouseenter', (event, commit) => {
-        renderTooltipContent(commit);
-        updateTooltipVisibility(true);
-        updateTooltipPosition(event);
+    d3.select(event.currentTarget).style('fill-opacity', 1);
+
+    renderTooltipContent(commit);
+    updateTooltipVisibility(true);
+    updateTooltipPosition(event);
     })
-    .on('mouseleave', () => {
+    .on('mouseleave', (event) => {
+        d3.select(event.currentTarget).style('fill-opacity', 0.7);
+
         updateTooltipVisibility(false);
     });
 }
