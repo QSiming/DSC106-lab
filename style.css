@@ -310,3 +310,30 @@ circle {
 circle:hover {
     transform: scale(1.5);
 }
+
+
+dl.info {
+    display: grid;
+    grid-template-columns: max-content auto;
+    gap: 0.25em 0.75em;
+}
+
+dl.info dt {
+    color: #666;
+    font-weight: normal;
+}
+
+dl.info dd {
+    margin: 0;
+}
+
+.tooltip {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.75em 1em;
+    border-radius: 0.5em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
