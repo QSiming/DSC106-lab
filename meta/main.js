@@ -96,6 +96,37 @@ function renderScatterPlot(data, commits) {
         .domain([0, 24])
         .range([height, 0]);
 
+
+        
+    // function to handle brush events
+    function brushed(event) {
+    const selection = event.selection;
+
+    d3.selectAll('circle').classed('selected', (d) =>
+        isCommitSelected(selection, d),
+    );
+    }
+
+
+    // function to check if a commit is within the selected area
+    function isCommitSelected(selection, commit) {
+    if (!selection) {
+        return false;
+    }
+
+    const [x0, y0] = selection[0];
+    const [x1, y1] = selection[1];
+
+    const x = xScale(commit.datetime);
+    const y = yScale(commit.hourFrac);
+
+    return x0 <= x && x <= x1 && y0 <= y && y <= y1;
+    }   
+
+    
+
+
+
     // define margins for the plot area
     const margin = { top: 10, right: 10, bottom: 30, left: 20 };
 
