@@ -289,3 +289,12 @@ path {
     margin: 0;
     font-size: 2rem;
 }
+
+/* make gridlines less prominent */
+.gridlines line {
+    stroke-opacity: 0.2;
+}
+
+.gridlines path {
+    display: none;
+}
