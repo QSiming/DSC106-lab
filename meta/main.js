@@ -13,5 +13,30 @@ async function loadData() {
     return data;
 }
 
-let data = await loadData();
 
+
+function processCommits(data) {
+    return d3
+        .groups(data, (d) => d.commit)
+        .map(([commit, lines]) => {
+            let first = lines[0];
+            let { author, date, time, timezone, datetime } = first;
+
+            return {
+            id: commit,
+            author,
+            date,
+            time,
+            timezone,
+            datetime,
+            url: 'https://github.com/QSiming/DSC106-lab/commit/' + commit,
+            hourFrac: datetime.getHours() + datetime.getMinutes() / 60,
+            totalLines: lines.length,
+            };
+        });
+}
+
+
+let data = await loadData();
+let commits = processCommits(data);
+console.log(commits);
