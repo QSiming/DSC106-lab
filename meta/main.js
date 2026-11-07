@@ -100,11 +100,13 @@ function renderScatterPlot(data, commits) {
 
     // function to handle brush events
     function brushed(event) {
-    const selection = event.selection;
+        const selection = event.selection;
 
-    d3.selectAll('circle').classed('selected', (d) =>
-        isCommitSelected(selection, d),
-    );
+        d3.selectAll('circle').classed('selected', (d) =>
+            isCommitSelected(selection, d),
+        );
+
+        renderSelectionCount(selection);
     }
 
 
@@ -214,7 +216,7 @@ function renderScatterPlot(data, commits) {
     createBrushSelector(svg);
 
 
-    
+
     // function to render the count of selected commits
     function renderSelectionCount(selection) {
         const selectedCommits = selection
@@ -232,7 +234,7 @@ function renderScatterPlot(data, commits) {
 
 
 // function to render tooltip content
-function renderTooltipContent(commit) {
+    function renderTooltipContent(commit) {
     const link = document.getElementById('commit-link');
     const date = document.getElementById('commit-date');
     const time = document.getElementById('commit-time');
@@ -253,14 +255,14 @@ function renderTooltipContent(commit) {
     lines.textContent = commit.totalLines;
 }
 
-// function to update tooltip visibility
-function updateTooltipVisibility(isVisible) {
+    // function to update tooltip visibility
+    function updateTooltipVisibility(isVisible) {
     const tooltip = document.getElementById('commit-tooltip');
     tooltip.hidden = !isVisible;
 }
 
-// function to update tooltip position
-function updateTooltipPosition(event) {
+    // function to update tooltip position
+    function updateTooltipPosition(event) {
     const tooltip = document.getElementById('commit-tooltip');
 
     tooltip.style.left = `${event.clientX}px`;
