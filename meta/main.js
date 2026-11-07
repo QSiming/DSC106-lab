@@ -54,6 +54,19 @@ function renderCommitInfo(data, commits) {
 
     dl.append('dt').text('Total commits');
     dl.append('dd').text(commits.length);
+
+    // group data by file and count the number of unique files
+    dl.append('dt').text('Number of files');
+    dl.append('dd').text(d3.group(data, (d) => d.file).size);
+
+    dl.append('dt').text('Average line length');
+    dl.append('dd').text(d3.mean(data, (d) => d.length).toFixed(2));
+
+    dl.append('dt').text('Maximum depth');
+    dl.append('dd').text(d3.max(data, (d) => d.depth));
+
+    dl.append('dt').text('Average depth');
+    dl.append('dd').text(d3.mean(data, (d) => d.depth).toFixed(2));
 }
 
 
