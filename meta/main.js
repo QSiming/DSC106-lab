@@ -171,6 +171,9 @@ function renderScatterPlot(data, commits) {
 
         updateTooltipVisibility(false);
     });
+    
+    // add brush selector to the plot
+    createBrushSelector(svg);
 }
 
 
