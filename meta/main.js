@@ -97,7 +97,7 @@ function renderScatterPlot(data, commits) {
         .range([height, 0]);
 
 
-        
+
     // function to handle brush events
     function brushed(event) {
     const selection = event.selection;
@@ -124,7 +124,14 @@ function renderScatterPlot(data, commits) {
     }   
 
     
+    // function to create brush selector
+    function createBrushSelector(svg) {
+    // Create brush
+    svg.call(d3.brush().on('start brush end', brushed));
 
+    // Raise dots and everything after overlay
+    svg.selectAll('.dots, .overlay ~ *').raise();
+}
 
 
     // define margins for the plot area
@@ -244,14 +251,7 @@ function updateTooltipPosition(event) {
     tooltip.style.top = `${event.clientY}px`;
 }
 
-// function to create brush selector
-function createBrushSelector(svg) {
-    // Create brush
-    svg.call(d3.brush().on('start brush end', brushed));
 
-    // Raise dots and everything after overlay
-    svg.selectAll('.dots, .overlay ~ *').raise();
-}
 
 
 
