@@ -279,9 +279,13 @@ path {
 
 .stats dt {
     grid-row: 1;
+    color: #6b7280;
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
 .stats dd {
     grid-row: 2;
     margin: 0;
+    font-size: 2rem;
 }
