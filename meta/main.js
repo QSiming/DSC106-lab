@@ -147,7 +147,7 @@ function renderScatterPlot(data, commits) {
         };
 
     xScale.range([usableArea.left, usableArea.right]);
-    yScale.range([usableArea.top, usableArea.bottom]);
+    yScale.range([usableArea.bottom, usableArea.top]);
 
     const xAxis = d3.axisBottom(xScale);
     const yAxis = d3
