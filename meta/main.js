@@ -174,6 +174,12 @@ function renderTooltipContent(commit) {
     lines.textContent = commit.totalLines;
 }
 
+// function to update tooltip visibility
+function updateTooltipVisibility(isVisible) {
+    const tooltip = document.getElementById('commit-tooltip');
+    tooltip.hidden = !isVisible;
+}
+
 
 
 
