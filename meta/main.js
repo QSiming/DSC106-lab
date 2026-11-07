@@ -111,6 +111,18 @@ function renderScatterPlot(data, commits) {
     const yAxis = d3
     .axisLeft(yScale)
     .tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');
+    
+    // add gridlines to the plot
+    const gridlines = svg
+    .append('g')
+    .attr('class', 'gridlines')
+    .attr('transform', `translate(${usableArea.left}, 0)`);
+
+    gridlines.call(
+        d3.axisLeft(yScale)
+            .tickFormat('')
+            .tickSize(-usableArea.width)
+            );
 
     svg
     .append('g')
