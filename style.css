@@ -337,3 +337,14 @@ dl.info dd {
     border-radius: 0.5em;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
+/* hide the tooltip when not hovered or focused */
+dl.info {
+    transition-duration: 500ms;
+    transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+    opacity: 0;
+    visibility: hidden;
+}
