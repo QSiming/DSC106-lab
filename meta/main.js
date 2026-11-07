@@ -138,13 +138,19 @@ function renderScatterPlot(data, commits) {
     const dots = svg.append('g').attr('class', 'dots');
 
     dots
-        .selectAll('circle')
-        .data(commits)
-        .join('circle')
-        .attr('cx', (d) => xScale(d.datetime))
-        .attr('cy', (d) => yScale(d.hourFrac))
-        .attr('r', 5)
-        .attr('fill', 'steelblue');
+    .selectAll('circle')
+    .data(commits)
+    .join('circle')
+    .attr('cx', (d) => xScale(d.datetime))
+    .attr('cy', (d) => yScale(d.hourFrac))
+    .attr('r', 5)
+    .attr('fill', 'steelblue')
+    .on('mouseenter', (event, commit) => {
+        renderTooltipContent(commit);
+    })
+    .on('mouseleave', () => {
+        // TODO: Hide the tooltip
+    });
 }
 // function to render tooltip content
 function renderTooltipContent(commit) {
