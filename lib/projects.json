@@ -1,7 +1,7 @@
 [
     {
         "title": "Bikewatching",
-        "image": "images/bikewatching.png",
+        "image": "images/Bikewatching.png",
         "description": "An interactive map of bike traffic in the Boston area using Mapbox and D3.",
         "url": "https://qsiming.github.io/Boston-area-bike-traffic-interactive-map/",
         "year": "2026"
