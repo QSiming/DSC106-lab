@@ -1,5 +1,12 @@
 [
     {
+        "title": "Bikewatching",
+        "image": "images/bikewatching.png",
+        "description": "An interactive map of bike traffic in the Boston area using Mapbox and D3.",
+        "url": "https://qsiming.github.io/Boston-area-bike-traffic-interactive-map/",
+        "year": "2026"
+    },
+    {
         "title": "Lorem ipsum dolor sit.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio aliquid sint quia. Rerum quod maxime dolore reprehenderit officia et animi quis aliquid unde voluptatem amet, eaque error ipsum vitae quisquam!",
